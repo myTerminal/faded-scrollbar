@@ -1,0 +1,98 @@
+.opacity (@opacity: 1) {
+    opacity: @opacity;
+    filter:alpha(opacity=@opacity);
+}
+
+.transition (@seconds: 1s) {
+    -moz-transition: @seconds;
+    -webkit-transition: @seconds;
+    -o-transition: @seconds;
+    transition: @seconds;
+}
+
+.round-borders (@borderRadius: 5px) {
+    -moz-border-radius: @borderRadius; 
+    -webkit-border-radius: @borderRadius;
+    border-radius: @borderRadius;
+}
+
+.box-sizing (@sizing: border-box) {
+    -moz-box-sizing: @sizing;
+    box-sizing: @sizing;
+}
+
+.faded-scrollbar-parent {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    max-height: 100%;
+
+    .faded-scrollbar-container {
+	position: relative;
+	top: 0px;
+	overflow: hidden;
+	margin-right: 16px;
+    }
+
+    .faded-scrollbar-controls {
+	position: absolute;
+	opacity: 0.5;
+	width: 16px;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+
+	.faded-scrollbar-handle-container {
+	    position: absolute;
+	    width: 100%;
+	    height:100%;
+
+	    .faded-scrollbar-handle {
+		position: absolute;
+		z-index: 1098;
+		top: 0px;
+		height: 30%;
+		width: 100%;
+		cursor: pointer;
+
+		.faded-scrollbar-handle-bar {
+		    position: relative;
+		    height: 100%;
+		    margin: 0px auto;
+		    width:4px;
+		    z-index: 1099;
+		}
+	    }
+
+	    .faded-scrollbar-handle-track {
+		opacity: 0.5;
+		width: 6px;
+		height: 100%;
+		margin: 0px auto;
+	    }
+	}
+    }
+
+    &.visible {
+	.faded-scrollbar-controls {
+	    opacity: 1;
+	}
+    }
+}
+
+.faded-scrollbar-controls {
+    
+    .faded-scrollbar-handle-container {
+        
+	.faded-scrollbar-handle	{
+            
+	    .faded-scrollbar-handle-bar {
+		background-color: Black;
+	    }
+	}
+
+	.faded-scrollbar-handle-track {
+	    background-color: Gray;
+	}
+    }
+}
