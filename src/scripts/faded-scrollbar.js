@@ -1,66 +1,56 @@
 var FadedScrollbar = function (scrollerSelector, options) {
-    var mouseDownOnContentY = null,
+    var scroller = $(scrollerSelector).first(),
+        mouseDownOnContentY = null,
         mouseDownOnHandleY = null,
-        scroller = $(scrollerSelector).first(),
+        scrollParentTemplate = "" +
+            "<div class='faded-scrollbar-parent'>" +
+            "  <div class='faded-scrollbar-container'>" +
+            "  </div>" +
+            "  <div class='faded-scrollbar-controls'>" +
+            "    <div class='faded-scrollbar-handle-container'>" +
+            "      <div class='faded-scrollbar-handle'>" +
+            "        <div class='faded-scrollbar-handle-bar'></div>" +
+            "      </div>" +
+            "      <div class='faded-scrollbar-handle-track'></div>" +
+            "    </div>" +
+            "  </div>" +
+            "</div>",
         scrollParent,
         scrollContainer,
         scrollControls,
-        scrollHandleContainer,
         scrollHandle,
         scrollHandleBar,
         scrollHandleTrack,
-        
-        setUpScrollMarkup = function () {
-            scroller.css("-moz-user-select", "none");
-            scroller.css("-webkit-user-select", "none");
-            scroller.attr("onselectstart", "return false;");
 
-            var scrollContent = scroller.html();
-            scroller.html('<div class="faded-scrollbar-parent">' +
-                            '<div class="faded-scrollbar-container">' +
-                              scrollContent +
-                            '</div>' +
-                            '<div class="faded-scrollbar-controls">' +
-                              '<div class="faded-scrollbar-handle-container">' +
-                                '<div class="faded-scrollbar-handle">' +
-                                  '<div class="faded-scrollbar-handle-bar"></div>' +
-                                '</div>' +
-                                '<div class="faded-scrollbar-handle-track"></div>' +
-                              '</div>' +
-                            '</div>' +
-                          '</div>');
-
-            scrollParent = scroller.find(".faded-scrollbar-parent");
-            scrollContainer = scroller.find(".faded-scrollbar-container");
-            scrollControls = scroller.find(".faded-scrollbar-controls");
-            scrollHandleContainer = scroller.find(".faded-scrollbar-handle");
-            scrollHandle = scroller.find(".faded-scrollbar-handle");
-            scrollHandleBar = scroller.find(".faded-scrollbar-handle-bar");
-            scrollHandleTrack = scroller.find(".faded-scrollbar-handle-track");
-        },
-        
         init = function () {
             setUpScrollMarkup();
             applyBindings();
             refresh();
         },
-        
-        refresh = function () {
-            var scrollerHeight = scroller.height(),
-                scrollContainerHeight = scrollContainer.height();
 
-            if(scrollerHeight > scrollContainerHeight) {
-                scrollControls.hide();
-            } else {
-                scrollControls.show();
-            }
-
-            var contentToContainerRatio = scrollerHeight / scrollContainerHeight,
-                handleTrackHeight = scrollHandleTrack.height(),
-                updatedHandleHeight = contentToContainerRatio * handleTrackHeight;
-            scrollHandle.css("height", updatedHandleHeight);
+        setUpScrollMarkup = function () {
+            disableSelection();
+            encapsulateScroller();
+            assignVariables();
         },
-        
+
+        encapsulateScroller = function () {
+            var scrollContent = scroller.html();
+
+            scrollParent = $(scrollParentTemplate);
+            scroller.html("");
+            scroller.append(scrollParent);
+            scrollParent.find(".faded-scrollbar-container").append(scrollContent);
+        },
+
+        assignVariables = function () {
+            scrollContainer = scrollParent.find(".faded-scrollbar-container");
+            scrollControls = scrollParent.find(".faded-scrollbar-controls");
+            scrollHandle = scrollParent.find(".faded-scrollbar-handle");
+            scrollHandleBar = scrollParent.find(".faded-scrollbar-handle-bar");
+            scrollHandleTrack = scrollParent.find(".faded-scrollbar-handle-track");
+        },
+
         applyBindings = function () {
             scrollContainer.bind("mousedown", function (evt) {
                 mouseDownOnContentY = evt.clientY;
@@ -84,6 +74,7 @@ var FadedScrollbar = function (scrollerSelector, options) {
             scrollParent.bind("mousemove", function (evt) {
                 var scrollableOffset = -(mouseDownOnHandleY - evt.clientY),
                     draggableOffset = scrollableOffset * getContentToContainerRatio();
+
                 if (mouseDownOnHandleY) {
                     pan(draggableOffset);
                     mouseDownOnHandleY = evt.clientY;
@@ -94,10 +85,47 @@ var FadedScrollbar = function (scrollerSelector, options) {
                 mouseDownOnHandleY = null;
             });
         },
+
+        refresh = function () {
+            var scrollerHeight = scroller.height(),
+                scrollContainerHeight = scrollContainer.height();
+
+            showOrHideControls(scrollerHeight, scrollContainerHeight);
+            updateHandleHeight(scrollerHeight, scrollContainerHeight);
+        },
+
+        showOrHideControls = function (scrollerHeight, scrollContainerHeight) {
+            if(scrollerHeight > scrollContainerHeight) {
+                scrollControls.hide();
+            } else {
+                scrollControls.show();
+            }
+        },
+
+        updateHandleHeight = function (scrollerHeight, scrollContainerHeight) {
+            var contentToContainerRatio = scrollerHeight / scrollContainerHeight,
+                handleTrackHeight = scrollHandleTrack.height(),
+                updatedHandleHeight = contentToContainerRatio * handleTrackHeight;
+
+            scrollHandle.css("height", updatedHandleHeight);
+        },
+
+        disableSelection = function () {
+            scroller.css("-moz-user-select", "none");
+            scroller.css("-webkit-user-select", "none");
+            scroller.attr("onselectstart", "return false;");
+        },
+
+        enableSelection = function () {
+            scroller.css("-moz-user-select", "");
+            scroller.css("-webkit-user-select", "");
+            scroller.removeAttr("onselectstart");
+        },
         
         getNumberOrDefault = function (input, parser, _default) {
             var parserToUse = (parser || parseInt),
                 parsedValue = parserToUse(input);
+
             return isNaN(parsedValue) ? _default : parsedValue;
         },
         
@@ -130,6 +158,7 @@ var FadedScrollbar = function (scrollerSelector, options) {
         getContentToContainerRatio = function () {
             var scrollContainerHeight = scrollContainer.height(),
                 scrollParentHeight = scrollParent.height();
+
             return scrollContainerHeight / scrollParentHeight;
         },
         
@@ -144,9 +173,17 @@ var FadedScrollbar = function (scrollerSelector, options) {
         reset = function () {
             setScrollOffset(0);
         },
+
+        unbindEvents = function () {
+            scrollContainer.unbind("mousedown mousemove mouseout mouseup");
+            scrollHandle.unbind("mousedown");
+            scrollParent.unbind("mousemove mouseout mouseup");
+        },
         
         destroy = function () {
-            
+            unbindEvents();
+            enableSelection();
+            scroller.html(scroller.find(".faded-scrollbar-container").html());
         };
 
     options = options || {};
