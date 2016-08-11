@@ -53,25 +53,32 @@ var FadedScrollbar = function (scrollerSelector, options) {
 
         applyBindings = function () {
             scrollContainer.bind("mousedown", function (evt) {
+                evt.stopPropagation();
                 mouseDownOnContentY = evt.clientY;
             });
 
             scrollContainer.bind("mousemove", function (evt) {
+                evt.stopPropagation();
+
                 if (mouseDownOnContentY) {
                     pan(mouseDownOnContentY - evt.clientY);
                     mouseDownOnContentY = evt.clientY;
                 }
             });
 
-            scrollContainer.bind("mouseout mouseup", function () {
+            scrollContainer.bind("mouseout mouseup", function (evt) {
+                evt.stopPropagation();
                 mouseDownOnContentY = null;
             });
 
             scrollHandle.bind("mousedown", function (evt) {
+                evt.stopPropagation();
                 mouseDownOnHandleY = evt.clientY;
             });
 
             scrollParent.bind("mousemove", function (evt) {
+                evt.stopPropagation();
+
                 var scrollableOffset = -(mouseDownOnHandleY - evt.clientY),
                     draggableOffset = scrollableOffset * getContentToContainerRatio();
 
@@ -81,7 +88,8 @@ var FadedScrollbar = function (scrollerSelector, options) {
                 }
             });
 
-            scrollParent.bind("mouseout mouseup", function () {
+            scrollParent.bind("mouseout mouseup", function (evt) {
+                evt.stopPropagation();
                 mouseDownOnHandleY = null;
             });
         },
