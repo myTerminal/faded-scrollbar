@@ -180,6 +180,7 @@ var FadedScrollbar = function (scrollerSelector, options) {
         
         reset = function () {
             setScrollOffset(0);
+            setHandleOffset(0);
         },
 
         unbindEvents = function () {
