@@ -17,8 +17,8 @@
     "html",
     "scrollbar"
   ],
-  "author": "Ismail Ansari <team.terminal@gmail.com>",
-  "license": "BSD",
+  "author": "Mohammed Ismail Ansari <team.terminal@gmail.com>",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/myTerminal/faded-scrollbar/issues"
   },
