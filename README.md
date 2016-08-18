@@ -36,6 +36,10 @@ When the scrollbar is no longer required, call a `destroy()` on the scrollbar an
 
     scrollbar.destroy();
 
+## Demo
+
+You can view a demo [here](https://myterminal.github.io/faded-scrollbar/example/)
+
 ## Dependency
 
 * jQuery
