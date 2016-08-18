@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>faded-scrollbar demo</title>
+        <link rel="stylesheet" type="text/css" href="../build/styles/faded-scrollbar.css" />
+        <style type="text/css">
+         body {
+             background-color: #E0E0E0;
+             font-family: Arial;
+             line-height: 24px;
+         }
+         
+         .code {
+             font-family: 'Courier New';   
+         }
+         
+         .myContent {
+	     height: 300px;
+	     width: 200px;
+	     padding: 5px 0px 5px 5px;
+	     margin: 20px 50px;
+	     background: White;
+         }
+         
+         .scroll-content {
+	     height: 100%;
+	     float: left;
+	     width: 100%;
+	     overflow: hidden;
+	 }
+        </style>
+        <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="../build/scripts/faded-scrollbar.min.js"></script>
+        <script type="text/javascript">
+         var scrollbar;
+
+         $(document).ready(function () {
+             scrollbar = new FadedScrollbar(".myContent");
+         });
+        </script>
+    </head>
+    <body>
+        <h2>faded-scrollbar</h2>
+        Below is a sample implementation of faded-scrollbar with just a line of script.<br />
+        <br />
+        <div class="myContent">
+            <div class="scroll-content">
+                I came across several scrollbar plugins on the internet and found them quite useful for the scenarios that I worked on.
+                However, many people complained that they have trouble setting up a scrollbar for the first time.
+                They always used to reach me to help them out with it.
+                So I decided to create a simplistic scrollbar plugin of my own that would require someone to do minimal setup and achieve a simple scrollbar in a very small amount of time.<br />
+                <br />
+                <u>Please Note:</u> This scrollbar is inspired from <a href="http://manos.malihu.gr/jquery-custom-content-scroller/">mCustomScrollbar</a> but has a different scripting approach.
+                Also, it may not be able to provide many features that other scrollbar plugins provide, but I'm sure this one will be the most easiest to implement in all.
+            </div>
+        </div>
+        <br />
+	Find faded-scrollbar at <a href="https://github.com/myTerminal/faded-scrollbar" target="_blank">https://github.com/myTerminal/faded-scrollbar</a>.
+    </body>
+</html>
