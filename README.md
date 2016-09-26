@@ -51,9 +51,3 @@ You can view a demo [here](https://myterminal.github.io/faded-scrollbar/example/
 * Scroll buttons
 * Scrolling with dragger
 * Touch events
-
-## Let me know
-
-Let me know your suggestions on improving *faded-scrollbar* at ismail@teamfluxion.com
-
-Thank you!
