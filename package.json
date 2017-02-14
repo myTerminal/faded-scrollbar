@@ -4,7 +4,7 @@
   "description": "A simple skinnable scrollbar for web",
   "scripts": {
     "install": "node installer.js",
-    "postinstall": "bower cache clean && bower install",
+    "postinstall": "bower cache clean && bower install && grunt",
     "develop": "grunt develop",
     "test": "grunt test"
   },
@@ -12,6 +12,10 @@
     "type": "git",
     "url": "https://github.com/myTerminal/faded-scrollbar"
   },
+  "bugs": {
+    "url": "https://github.com/myTerminal/faded-scrollbar/issues"
+  },
+  "homepage": "https://github.com/myTerminal/faded-scrollbar#readme",
   "keywords": [
     "myTerminal",
     "html",
@@ -19,9 +23,6 @@
   ],
   "author": "Mohammed Ismail Ansari <team.terminal@gmail.com>",
   "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/myTerminal/faded-scrollbar/issues"
-  },
   "dependencies": {
     "package-script": "0.0.8"
   },
