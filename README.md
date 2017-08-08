@@ -1,5 +1,7 @@
 # faded-scrollbar
 
+[![npm version](https://badge.fury.io/js/faded-scrollbar.svg)](https://badge.fury.io/js/faded-scrollbar)
+[![npm downloads](https://img.shields.io/npm/dt/faded-scrollbar.svg)](https://www.npmjs.com/package/faded-scrollbar)
 [![Bower version](https://badge.fury.io/bo/faded-scrollbar.svg)](https://badge.fury.io/bo/faded-scrollbar)  
 [![Build Status](https://travis-ci.org/myTerminal/faded-scrollbar.svg?branch=master)](https://travis-ci.org/myTerminal/faded-scrollbar)
 [![Code Climate](https://codeclimate.com/github/myTerminal/faded-scrollbar.png)](https://codeclimate.com/github/myTerminal/faded-scrollbar)

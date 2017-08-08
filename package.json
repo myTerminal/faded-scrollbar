@@ -1,6 +1,6 @@
 {
   "name": "faded-scrollbar",
-  "version": "0.0.9",
+  "version": "0.9.1",
   "description": "A simple skinnable scrollbar for web",
   "scripts": {
     "install-globals": "npm install -g grunt-cli bower istanbul mocha-phantomjs",
