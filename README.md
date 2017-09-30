@@ -46,7 +46,7 @@ You can view a demo [here](https://myterminal.github.io/faded-scrollbar/example/
 
 ## Dependency
 
-* jQuery
+* [jQuery](https://www.npmjs.com/package/jquery)
 
 ## To-do
 
