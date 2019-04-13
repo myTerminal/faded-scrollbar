@@ -17,7 +17,7 @@ A simple skinnable scrollbar for web
 ## Features
 
 * An easy to use custom scrollbar that works out of the box with a simple function invocation.
-* Can be easily themed
+* Can be easily themed for any host application
 
 ## How to Use
 
