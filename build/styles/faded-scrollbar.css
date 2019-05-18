@@ -6,17 +6,18 @@
 }
 .faded-scrollbar-parent .faded-scrollbar-container {
   position: relative;
-  top: 0px;
+  top: 0;
   overflow: hidden;
   margin-right: 16px;
 }
 .faded-scrollbar-parent .faded-scrollbar-controls {
   position: absolute;
-  opacity: 0.5;
   width: 16px;
   height: 100%;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  filter: alpha(opacity=0.5);
 }
 .faded-scrollbar-parent .faded-scrollbar-controls .faded-scrollbar-handle-container {
   position: absolute;
@@ -26,7 +27,7 @@
 .faded-scrollbar-parent .faded-scrollbar-controls .faded-scrollbar-handle-container .faded-scrollbar-handle {
   position: absolute;
   z-index: 1098;
-  top: 0px;
+  top: 0;
   height: 30%;
   width: 100%;
   cursor: pointer;
@@ -34,22 +35,24 @@
 .faded-scrollbar-parent .faded-scrollbar-controls .faded-scrollbar-handle-container .faded-scrollbar-handle .faded-scrollbar-handle-bar {
   position: relative;
   height: 100%;
-  margin: 0px auto;
+  margin: 0 auto;
   width: 4px;
   z-index: 1099;
 }
 .faded-scrollbar-parent .faded-scrollbar-controls .faded-scrollbar-handle-container .faded-scrollbar-handle-track {
-  opacity: 0.5;
   width: 6px;
   height: 100%;
-  margin: 0px auto;
+  margin: 0 auto;
+  opacity: 0.5;
+  filter: alpha(opacity=0.5);
 }
 .faded-scrollbar-parent.visible .faded-scrollbar-controls {
   opacity: 1;
+  filter: alpha(opacity=1);
 }
 .faded-scrollbar-controls .faded-scrollbar-handle-container .faded-scrollbar-handle .faded-scrollbar-handle-bar {
-  background-color: Black;
+  background-color: black;
 }
 .faded-scrollbar-controls .faded-scrollbar-handle-container .faded-scrollbar-handle-track {
-  background-color: Gray;
+  background-color: gray;
 }
