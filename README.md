@@ -10,7 +10,7 @@
 [![devDependency Status](https://david-dm.org/myTerminal/faded-scrollbar/dev-status.svg)](https://david-dm.org/myTerminal/faded-scrollbar#info=devDependencies)
 [![peer Dependency Status](https://david-dm.org/myTerminal/faded-scrollbar/peer-status.svg)](https://david-dm.org/myTerminal/faded-scrollbar#info=peerDependencies)  
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![License](https://img.shields.io/badge/LICENSE-GPL%20v3.0-blue.svg)](https://www.gnu.org/licenses/gpl.html)
+[![License](https://img.shields.io/github/license/myTerminal/ample-alerts.svg)](https://opensource.org/licenses/MIT)
 
 A simple skinnable scrollbar for web
 
