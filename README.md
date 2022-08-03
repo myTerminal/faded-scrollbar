@@ -2,15 +2,12 @@
 
 [![npm version](https://badge.fury.io/js/faded-scrollbar.svg)](https://badge.fury.io/js/faded-scrollbar)
 [![npm downloads](https://img.shields.io/npm/dt/faded-scrollbar.svg)](https://www.npmjs.com/package/faded-scrollbar)
-[![Bower version](https://badge.fury.io/bo/faded-scrollbar.svg)](https://badge.fury.io/bo/faded-scrollbar)  
+[![Bower version](https://badge.fury.io/bo/faded-scrollbar.svg)](https://badge.fury.io/bo/faded-scrollbar)
+[![License](https://img.shields.io/github/license/myTerminal/ample-alerts.svg)](https://opensource.org/licenses/MIT)  
 [![Build Status](https://travis-ci.org/myTerminal/faded-scrollbar.svg?branch=master)](https://travis-ci.org/myTerminal/faded-scrollbar)
 [![Code Climate](https://codeclimate.com/github/myTerminal/faded-scrollbar.png)](https://codeclimate.com/github/myTerminal/faded-scrollbar)
 [![Coverage Status](https://img.shields.io/coveralls/myTerminal/faded-scrollbar.svg)](https://coveralls.io/r/myTerminal/faded-scrollbar?branch=master)  
-[![Dependency Status](https://david-dm.org/myTerminal/faded-scrollbar.svg)](https://david-dm.org/myTerminal/faded-scrollbar)
-[![devDependency Status](https://david-dm.org/myTerminal/faded-scrollbar/dev-status.svg)](https://david-dm.org/myTerminal/faded-scrollbar#info=devDependencies)
-[![peer Dependency Status](https://david-dm.org/myTerminal/faded-scrollbar/peer-status.svg)](https://david-dm.org/myTerminal/faded-scrollbar#info=peerDependencies)  
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![License](https://img.shields.io/github/license/myTerminal/ample-alerts.svg)](https://opensource.org/licenses/MIT)
 
 A simple skinnable scrollbar for web
 
